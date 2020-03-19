@@ -44,13 +44,19 @@ function getNavData (elements) {
 */
 
 // build the nav
-let frag = document.createDocumentFragment();
+let navFragment = document.createDocumentFragment();
 for(data of navData) {
-    var li = document.createElement('li');
+    let i = 1;
+    let link = document.createElement('a')
+    link.setAttribute('href', '#'+data.toLowerCase().replace(/\s+/g, ''));
+    let li = document.createElement('li');
+    li.setAttribute('class', 'menu__link');
     li.textContent = data;
-    frag.appendChild(li);
+    link.appendChild(li);
+    navFragment.appendChild(link);
+    i += 1;
 }
-document.querySelector('#navbar__list').appendChild(frag);
+document.querySelector('#navbar__list').appendChild( navFragment);
 
 // Add class 'active' to section when near top of viewport
 
