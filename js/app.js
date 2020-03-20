@@ -33,6 +33,17 @@ function getNavData (elements) {
     return navData;
 }
 
+function setSectionHighlight () {
+    for(element of navElements) {
+        const section = document.querySelector("#"+element.getAttribute('id'));
+        if (section.getBoundingClientRect().top > -100 && section.getBoundingClientRect().top < (window.innerHeight-200)) {
+            section.setAttribute('class', 'your-active-class');
+        } else {
+            section.removeAttribute('class', 'your-active-class');
+        }
+    };
+
+}
 
 
 
@@ -69,7 +80,9 @@ window.addEventListener('scroll', function(){
 })
 
 // Add class 'active' to section when near top of viewport
-
+window.addEventListener('scroll', function (){
+    setSectionHighlight();
+});
 
 // Scroll to anchor ID using scrollTO event
 navBar.addEventListener('click', function (event) {
