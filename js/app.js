@@ -45,23 +45,17 @@ function getNavData (elements) {
 
 // build the nav
 let navFragment = document.createDocumentFragment();
-for(data of getNavData(navElements)) {
-    let i = 1;
-    let link = document.createElement('a')
-    link.setAttribute('href', '#'+data.toLowerCase().replace(/\s+/g, ''));
+for (let i = 0; i < navElements.length; i++) {
+    let link = document.createElement('a');
     let li = document.createElement('li');
-    li.setAttribute('class', 'menu__link');
-    li.textContent = data;
+    link.setAttribute('class', 'menu__link');
+    li.setAttribute('data-scroll', i)
+    li.textContent = navElements[i].querySelector('h2').textContent;
     link.appendChild(li);
     navFragment.appendChild(link);
-    i += 1;
 }
-navBar.appendChild( navFragment);
+navBar.appendChild(navFragment);
 
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
 let scrollY = window.scrollY
 window.addEventListener('scroll', function(){
     if (window.scrollY === 0) {
@@ -73,6 +67,19 @@ window.addEventListener('scroll', function(){
     }
     scrollY = window.screenY;
 })
+
+// Add class 'active' to section when near top of viewport
+
+
+// Scroll to anchor ID using scrollTO event
+navBar.addEventListener('click', function (event) {
+    const t = event.target;
+    console.log(t);
+    const top = document.querySelector('#'+navElements[t.getAttribute('data-scroll')].getAttribute('id'));
+    console.log(top);
+    top.scrollIntoView({behavior: "smooth"});
+});
+
 
 /**
  * End Main Functions

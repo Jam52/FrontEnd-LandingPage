@@ -10,7 +10,7 @@
 
 /* classes to hide and show navbar */
 .visible {
-    display: block;
+    display: grid;
 }
 .hidden {
     display: none;
@@ -19,9 +19,11 @@
 
 /* classes to hide and show navbar */
 /* ---- Base Rules ---- */
-html {
+
+/* html {
     scroll-behavior: smooth;
-}
+} */
+
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
@@ -77,18 +79,20 @@ section {
 
 /* Navigation Styles*/
 .navbar__menu ul {
+    width: 80%;
+    margin: auto;
     padding-left: 0;
-    margin: 0;
-    text-align: right;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: space-between;
 }
 
-.navbar__menu li {
-    display: inline-block;
+.navbar__menu li { 
+    padding: 1em;
+    list-style: none;
+    
 }
 
 .navbar__menu .menu__link {
-    display: block;
-    padding: 1em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
