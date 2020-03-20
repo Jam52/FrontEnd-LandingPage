@@ -8,7 +8,16 @@
  *
 */
 
+/* classes to hide and show navbar */
+.visible {
+    display: block;
+}
+.hidden {
+    display: none;
+}
 
+
+/* classes to hide and show navbar */
 /* ---- Base Rules ---- */
 html {
     scroll-behavior: smooth;

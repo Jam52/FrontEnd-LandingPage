@@ -18,7 +18,7 @@
  * 
 */
 let navElements = document.querySelectorAll('[data-nav]');
-const navData = getNavData(navElements);
+let navBar = document.querySelector('#navbar__list');
 
 /**
  * End Global Variables
@@ -45,7 +45,7 @@ function getNavData (elements) {
 
 // build the nav
 let navFragment = document.createDocumentFragment();
-for(data of navData) {
+for(data of getNavData(navElements)) {
     let i = 1;
     let link = document.createElement('a')
     link.setAttribute('href', '#'+data.toLowerCase().replace(/\s+/g, ''));
@@ -56,13 +56,23 @@ for(data of navData) {
     navFragment.appendChild(link);
     i += 1;
 }
-document.querySelector('#navbar__list').appendChild( navFragment);
+navBar.appendChild( navFragment);
 
 // Add class 'active' to section when near top of viewport
 
 
 // Scroll to anchor ID using scrollTO event
-
+let scrollY = window.scrollY
+window.addEventListener('scroll', function(){
+    if (window.scrollY === 0) {
+        console.log('at top');
+        navBar.setAttribute('class','visible');
+    } else {
+        console.log('not at top');
+        navBar.setAttribute('class','hidden');
+    }
+    scrollY = window.screenY;
+})
 
 /**
  * End Main Functions
