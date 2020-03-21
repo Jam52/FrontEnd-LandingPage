@@ -88,7 +88,7 @@ section {
 }
 
 .navbar__menu li { 
-    padding: 1em;
+    padding: 0.5em;
     list-style: none;
     text-align: center;
     
@@ -98,6 +98,15 @@ section {
     font-weight: bold;
     text-decoration: none;
     color: #000;
+}
+
+.highlight_link {
+    background: #333;
+    color: #fff;
+}
+
+.highlight_link li {
+    color: #fff;
 }
 
 .navbar__menu .menu__link:hover {

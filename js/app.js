@@ -20,6 +20,7 @@
 let navElements = document.querySelectorAll('[data-nav]');
 let navBar = document.querySelector('#navbar__list');
 
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -34,17 +35,21 @@ function getNavData (elements) {
 }
 
 function setSectionHighlight () {
+    let navBarLinks = document.querySelectorAll('.menu__link');
     for(element of navElements) {
         const section = document.querySelector("#"+element.getAttribute('id'));
+        const navIndex =  Array.prototype.indexOf.call(navElements, element);
         if (section.getBoundingClientRect().top > -100 && section.getBoundingClientRect().top < (window.innerHeight-200)) {
-            section.setAttribute('class', 'your-active-class');
+            section.classList.add('your-active-class');
+            console.log(navIndex);
+            console.log(navBarLinks.item(navIndex).classList.add('highlight_link'));
         } else {
-            section.removeAttribute('class', 'your-active-class');
+            section.classList.remove('your-active-class');
+            console.log(navBarLinks.item(navIndex).classList.remove('highlight_link'));
         }
     };
 
 }
-
 
 
 
@@ -67,7 +72,7 @@ for (let i = 0; i < navElements.length; i++) {
 }
 navBar.appendChild(navFragment);
 
-let scrollY = window.scrollY
+/*let scrollY = window.scrollY
 window.addEventListener('scroll', function(){
     if (window.scrollY === 0) {
         console.log('at top');
@@ -77,7 +82,7 @@ window.addEventListener('scroll', function(){
         navBar.setAttribute('class','hidden');
     }
     scrollY = window.screenY;
-})
+}) */
 
 // Add class 'active' to section when near top of viewport
 window.addEventListener('scroll', function (){
@@ -87,9 +92,7 @@ window.addEventListener('scroll', function (){
 // Scroll to anchor ID using scrollTO event
 navBar.addEventListener('click', function (event) {
     const t = event.target;
-    console.log(t);
     const top = document.querySelector('#'+navElements[t.getAttribute('data-scroll')].getAttribute('id'));
-    console.log(top);
     top.scrollIntoView({behavior: "smooth"});
 });
 
