@@ -21,28 +21,25 @@ const startingTime = performance.now();
 let navElements = document.querySelectorAll('[data-nav]');
 let navBar = document.querySelector('#navbar__list');
 let navMenu = document.querySelector('.navbar__menu');
-let scrollLink = document.querySelector('#scroll__link')
-
-
+let scrollLink = document.querySelector('#scroll__link');
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
+
 function setSectionHighlight () {
     let navBarLinks = document.querySelectorAll('.menu__link');
     for(element of navElements) {
-        const section = document.querySelector("#"+element.getAttribute('id'));
-        const navIndex =  Array.prototype.indexOf.call(navElements, element);
-        if (section.getBoundingClientRect().top > -100 && section.getBoundingClientRect().top < (window.innerHeight-200)) {
-            section.classList.add('your-active-class');
+        let navIndex = Array.prototype.indexOf.call(navElements, element);
+        if (element.getBoundingClientRect().top > - 100 && element.getBoundingClientRect().top < (window.innerHeight-200)) {
+            element.classList.add('your-active-class');
             navBarLinks.item(navIndex).classList.add('highlight_link');
         } else {
-            section.classList.remove('your-active-class');
+            element.classList.remove('your-active-class');
             navBarLinks.item(navIndex).classList.remove('highlight_link');
         }
     };
-
 }
 
 
@@ -112,12 +109,11 @@ window.addEventListener('scroll', () => {
             navMenu.classList.add('hidden');
             };
         scrollY = window.scrollY;
-    }, 1000);
+    }, 1500);
 });
 
 
 //scroll to top listener
-
 scrollLink.addEventListener('click', (event) => { 
     event.preventDefault();
     window.scrollTo({
@@ -125,6 +121,20 @@ scrollLink.addEventListener('click', (event) => {
         left: 0,
         behavior: 'smooth'
       });
-    console.log('hiding scrollLink');
 });
+
+// Collapse sections listener
+let headerLinks = document.querySelectorAll('.header__link');
+for(link of headerLinks) {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const link = event.target.parentElement;
+        const landingContainer = link.parentElement;
+        for(let i = 2; i < landingContainer.childNodes.length ; i++) {
+            if(landingContainer.childNodes[i].nodeType == Node.ELEMENT_NODE) {
+                landingContainer.childNodes[i].classList.toggle('hidden');
+            };
+        }
+    })
+}
 
