@@ -12,31 +12,35 @@
 
 /* classes to hide and show navbar */
 .hidden {
-    display: none;
+    position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+    height: 1px; width: 1px; 
+    margin: -1px; padding: 0; border: 0; 
 }
 
 
 /* classes to hide and show navbar */
 /* ---- Base Rules ---- */
 
-/* html {
-    scroll-behavior: smooth;
-} */
+html {
+    background: #fff;
+    background-image: url('/FrontEnd-LandingPage/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}
 
 body {
-    background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
-    margin: 0;
-    font-family: 'Merriweather', serif;
-    color: #fff;
+    font-family: 'Muli', sans-serif;
+    color: #000;
 }
 
 
 /* Typeography General*/
 h1 {
-    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Dancing Script', cursive;
     font-size: 3em;
-    margin: 2em 1rem;
+    margin: 1em 1rem;
 }
 
 @media only screen and (min-width: 35em){
@@ -47,15 +51,15 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid #cc1;
-    font-family: 'Oxygen', Sans-Serif;
+    border-bottom: 3px solid #EAB543;
+    font-family: 'Roboto Slab', serif;
     font-size: 3em;
-    color: #fff;
+    color:#000;
 }
 
 p {
     line-height: 1.6em;
-    color: #eee;
+    color: #111;
 }
 
 /* ---- Layout Rules ---- */
@@ -66,40 +70,50 @@ main {
 
 .main-hero {
     min-height: 40vh;
-    padding-top: 3em;
+    padding-top: 1em;
 }
 
 section {
     position: relative;
     min-height: 20vh;
+    margin-bottom: 5vh;
 }
 
 
 /* ---- Module Rules ---- */
+/* Gallery Rules */
+
+
+.gallery {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: minmax(1fr, 1fr);
+}
+
+.gallery img {
+    width: 100%;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+
+}
 
 /* Navigation Styles*/
-
-.navbar__menu ul {
+#navbar__list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-auto-rows: 40px;
-    align-content: space-between;
-    width: 90%;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90vw;
     margin: auto;
+    padding-bottom: 70px;
 }
 
-@media (max-width: 600px) {
-    .navbar__menu ul {
-        grid-template-columns: 1fr;
-    }
-
-}
 
 .scroll__top {
-    background-color: #cc1;
+    background-color:#cc1;
     color: #fff;
     font-weight: bold;
-    padding: 0.5em;
     text-align: center;
     text-decoration: none;
     width: 100%;
@@ -115,7 +129,7 @@ header a {
 
 
 .navbar__menu li { 
-    padding: 0.2em;
+    padding: 0.4em;
     list-style: none;
     text-align: center;
     
@@ -124,7 +138,7 @@ header a {
 .navbar__menu .menu__link {
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: #222;
 }
 
 .highlight_link {
@@ -144,7 +158,7 @@ header a {
 
 /* Header Styles */
 .page__header {
-    background: #fff;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
     position: fixed;
     top: 0;
     width: 100%;

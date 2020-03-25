@@ -6,6 +6,7 @@
   <title>Manipulating the DOM</title>
   <!-- Load Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Muli|Roboto+Slab&display=swap" rel="stylesheet">
   <link href="css/styles.css" type="text/css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -16,12 +17,12 @@
     <a href="#" class="hidden" id="scroll__link"><div class="scroll__top">Scroll To Top</div></a>
     <nav class="navbar__menu">
       <!-- Navigation starts as empty UL that will be populated with JS -->
-      <ul id="navbar__list" class="visible"></ul>
+      <ul id="navbar__list"></ul>
     </nav>
   </header>
   <main>
     <header class="main__hero">
-      <h1>Landing Page </h1>
+      <h1>The Orbit Coffee Table</h1>
     </header>
     <!-- Each Section has an ID (used for the anchor) and 
     a data attribute that will populate the li node.
@@ -29,51 +30,41 @@
     The first section is set to active class by default -->
     <section id="section1" data-nav="About" class="your-active-class">
       <div class="landing__container">
-        <a class="header__link" href='#'><h2>The Begining</h2></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+        <a class="header__link" href='#'><h2>About The Table</h2></a>
+        <p>I originally designed the orbit table for a compatition for handmade furniture in 2010. Unfortunatly I couldnt get a prototype put together in time however once we had it was clear that we had something special. </p>
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+        <p>The 'we' being refered to was myself and my farther, as once we had the manufacturing for the orbit figured out (with large steam boxes and precise jigs) we decided to go into business together and make and sell them!</p>
       </div>
     </section>
-    <section id="section2" data-nav="Highlights">
+    <section id="section2" data-nav="Gallery">
       <div class="landing__container">
-        <a class="header__link" href='#'><h2>Some More Info</h2></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+        <a class="header__link" href='#'><h2>Gallery Images</h2></a>
+        <div class="gallery">
+          <img src="images/orbit1.jpg">
+          <img src="images/orbit3.jpg">
+          <img src="images/orbit2.jpg">
+          <img src="images/orbit4.jpg">
+          <img src="images/orbit5.jpg">
+          <img src="images/orbit6.jpg">
+        </div>
       </div>
     </section>
     <section id="section3" data-nav="Dimentsions">
       <div class="landing__container">
-        <a class="header__link" href='#'><h2>Even More</h2></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+        <a class="header__link" href='#'><h2>Details</h2></a>
+        <p>Height: 18"</p>
+        <p>Diameter: 34"</p>
+        <p>1/4" Starfire glass</p>
+        <p>Finish: Oiled Walnut</p>
       </div>
     </section>
-    <section id="section4" data-nav="Gallery">
+    <section id="section4" data-nav="How it's made">
       <div class="landing__container">
-        <a class="header__link" href='#'><h2>And thats it!</h2></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
-    </section>
-    <section id="section5" data-nav="Details">
-      <div class="landing__container">
-        <a class="header__link" href='#'><h2>Still here?</h2></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
-    </section>
-    <section id="section6" data-nav="Final thoughts">
-      <div class="landing__container">
-        <a class="header__link" href='#'><h2>I may no know what Im doing!</h2></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
-
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
+        <a class="header__link" href='#'><h2>How it's made</h2></a>
+        <p>
+          The main wooden rings are made using a steam bending and laminating technique. There are three layers of wood which are steamed for about 20 minutes in a large steam box. The hot lengths of wood are then quickly brought to a jig, bent and strapped to stay bent while they cool for about 24hrs.<br><br>The bent sections of wood are then cut to exactly half a circle with a specially designed jig. These perfect half circles are then laminated (glued in layers) with the joins offset to ensure the strength of the finished ring.<br><br>After the rings are cleaned up there is yet another set of specially designed jigs to drill the joining holes at a very specific position and angle. This is extremely important as otherwise the glass top once attached will not be flat<br><br>The last step is to uv bond the metal connectors to the glass, using the finished base to ensure the location is correct.
+        </p>
+        </div>
     </section>
   </main>
   <footer class="page__footer">
