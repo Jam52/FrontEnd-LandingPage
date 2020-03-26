@@ -15,8 +15,8 @@
     position: absolute; 
     overflow: hidden; 
     clip: rect(0 0 0 0); 
-    height: 1px; width: 1px; 
-    margin: -1px; padding: 0; border: 0; 
+    height: 0px; width: 0px; 
+    margin: -0px; padding: 0; border: 0; 
 }
 
 
@@ -27,26 +27,30 @@ html {
     background: #fff;
     background-image: url('/FrontEnd-LandingPage/background.jpg');
     background-repeat: no-repeat;
-    background-size: 100vw;
+    background-size: 200vw;
 }
 
 body {
     font-family: 'Muli', sans-serif;
     color: #000;
+    margin: 0;
 }
 
 
 /* Typeography General*/
 h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 3em;
-    margin: 1em 1rem;
+    font-size: 4em;
+    margin: 2.6em 0em 0.2em 0em;
 }
 
 @media only screen and (min-width: 35em){
     h1 {
         font-size: 7em;
-        margin: 2em 4rem 1em;
+        margin: 1.2em 0em 1.2em 0em;
+    }
+    html {
+        background-size: 100vw;
     }
 }
 
@@ -68,11 +72,6 @@ main {
     margin: auto;
 }
 
-.main-hero {
-    min-height: 40vh;
-    padding-top: 1em;
-}
-
 section {
     position: relative;
     min-height: 20vh;
@@ -82,8 +81,6 @@ section {
 
 /* ---- Module Rules ---- */
 /* Gallery Rules */
-
-
 .gallery {
     display: grid;
     grid-gap: 10px;
@@ -98,14 +95,18 @@ section {
 }
 
 /* Navigation Styles*/
+.navbar__menu {
+    width: 100%;
+}
+
 #navbar__list {
+    position: relative;
+    width: 89%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-auto-rows: 40px;
-    justify-content: space-evenly;
+    grid-auto-rows: 30px;
     align-items: center;
-    width: 90vw;
-    margin: auto;
+    justify-content: space-around;
     padding-bottom: 70px;
 }
 
@@ -128,11 +129,18 @@ header a {
 }
 
 
+
 .navbar__menu li { 
-    padding: 0.4em;
+    padding: 0.2em;
     list-style: none;
     text-align: center;
     
+}
+
+@media only screen and (min-width: 35em){
+    .navbar__menu li { 
+        padding: 0.4em;
+    }
 }
 
 .navbar__menu .menu__link {
@@ -153,7 +161,7 @@ header a {
 .navbar__menu .menu__link:hover {
     background: #333;
     color: #fff;
-    transition: ease 0.3s all;
+    transition: ease 0.5s all;
 }
 
 /* Header Styles */
@@ -204,7 +212,7 @@ section:nth-of-type(even) .landing__container {
 /* Circles appear to be random do to use of :nth-of-type psuedo class */
 section:nth-of-type(odd) .landing__container::before {
     content: '';
-    border: 7px solid rgba(255, 255, 255, 0.187);
+    border: 5px solid rgba(0, 0, 0, 0.1);
     position: absolute;
     z-index: -5;
     width: 20vh;
@@ -216,7 +224,7 @@ section:nth-of-type(odd) .landing__container::before {
 
 section:nth-of-type(even) .landing__container::before {
     content: '';
-    border: 7px solid rgba(255, 255, 255, 0.187);
+    border: 5px solid rgba(0, 0, 0, 0.1);
     position: absolute;
     top: 3em;
     right: 3em;
@@ -230,7 +238,7 @@ section:nth-of-type(even) .landing__container::before {
 
 section:nth-of-type(3n) .landing__container::after {
     content: '';
-    border: 7px solid rgba(255, 255, 255, 0.187);
+    border: 5px solid rgba(0, 0, 0, 0.1);
     position: absolute;
     right: 0;
     bottom: 0;
@@ -244,7 +252,7 @@ section:nth-of-type(3n) .landing__container::after {
 
 section:nth-of-type(3n + 1) .landing__container::after {
     content: '';
-    border: 7px solid rgba(255, 255, 255, 0.187);
+    border: 5px solid rgba(0, 0, 0, 0.1);
     position: absolute;
     right: 20vw;
     bottom: -5em;

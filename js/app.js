@@ -27,21 +27,22 @@ let scrollLink = document.querySelector('#scroll__link');
  * Start Helper Functions
  * 
 */
+function isOnScreen(e) {
+    if (e.getBoundingClientRect().top < (window.innerHeight/2) 
+    && e.getBoundingClientRect().bottom > (window.innerHeight/2)) {
+        return true;
+    }
+    return false;
+};
 
-function setSectionHighlight () {
-    let navBarLinks = document.querySelectorAll('.menu__link');
-    for(element of navElements) {
-        let navIndex = Array.prototype.indexOf.call(navElements, element);
-        if (element.getBoundingClientRect().top > - 100 && element.getBoundingClientRect().top < (window.innerHeight-200)) {
-            element.classList.add('your-active-class');
-            navBarLinks.item(navIndex).classList.add('highlight_link');
-        } else {
-            element.classList.remove('your-active-class');
-            navBarLinks.item(navIndex).classList.remove('highlight_link');
-        }
-    };
-}
-
+//Collapses all except the header
+function collapseSection(landingContainer) {
+    for(let i = 2; i < landingContainer.childNodes.length ; i++) {
+        if(landingContainer.childNodes[i].nodeType == Node.ELEMENT_NODE) {
+            landingContainer.childNodes[i].classList.toggle('hidden');
+        };
+    }
+};
 
 
 /**
@@ -67,7 +68,17 @@ navBar.appendChild(navFragment);
 
 // Add class 'active' to section when near top of viewport
 window.addEventListener('scroll', () => {
-    setSectionHighlight();
+    let navBarLinks = document.querySelectorAll('.menu__link');
+    for(element of navElements) {
+        let navIndex = Array.prototype.indexOf.call(navElements, element);
+        if (isOnScreen(element)) {
+            element.classList.add('your-active-class');
+            navBarLinks.item(navIndex).classList.add('highlight_link');
+        } else {
+            element.classList.remove('your-active-class');
+            navBarLinks.item(navIndex).classList.remove('highlight_link');
+        }
+    };
 });
 
 // Scroll to anchor ID using scrollTO event
@@ -78,38 +89,19 @@ navBar.addEventListener('click',(event) => {
     top.scrollIntoView({behavior: "smooth"});
 });
 
-const endingTime = performance.now();
-console.log(startingTime - endingTime);
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
 //hide navbar when not scrolling
 let scrollY = window.scrollY;
 window.addEventListener('scroll', () => {
-    navMenu.classList.remove('hidden');
-    
-    setTimeout(()=>{
-        if(scrollY > window.innerHeight) {
-            scrollLink.classList.remove('hidden');
-        } else {
-           scrollLink.classList.add('hidden');
-        }
+    if(scrollY > 200) {
         navMenu.classList.remove('hidden');
-        if(scrollY > 200) {
-            navMenu.classList.add('hidden');
-            };
-        scrollY = window.scrollY;
-    }, 1500);
+        setTimeout(()=>{ if(scrollY > 200){navMenu.classList.add('hidden')};}, 1500);
+    };
+    if(scrollY < window.innerHeight) {
+        setTimeout(()=>{ scrollLink.classList.add('hidden')}, 0);
+    } else {
+        scrollLink.classList.remove('hidden');
+    };
+    scrollY = window.scrollY;
 });
 
 
@@ -130,11 +122,10 @@ for(link of headerLinks) {
         event.preventDefault();
         const link = event.target.parentElement;
         const landingContainer = link.parentElement;
-        for(let i = 2; i < landingContainer.childNodes.length ; i++) {
-            if(landingContainer.childNodes[i].nodeType == Node.ELEMENT_NODE) {
-                landingContainer.childNodes[i].classList.toggle('hidden');
-            };
-        }
-    })
-}
+        collapseSection(landingContainer);
+    });
+};
 
+
+const endingTime = performance.now();
+console.log(startingTime - endingTime);
