@@ -92,8 +92,8 @@ navBar.addEventListener('click',(event) => {
 //hide navbar when not scrolling
 let scrollY = window.scrollY;
 window.addEventListener('scroll', () => {
+    navMenu.classList.remove('hidden');
     if(scrollY > 200) {
-        navMenu.classList.remove('hidden');
         setTimeout(()=>{ if(scrollY > 200){navMenu.classList.add('hidden')};}, 1500);
     };
     if(scrollY < window.innerHeight) {
